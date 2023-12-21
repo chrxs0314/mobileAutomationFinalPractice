@@ -11,7 +11,7 @@ public class LoginScreen extends BaseScreen {
     WebElement title;
 
     @Override
-    protected Boolean verifyPage() {
+    protected Boolean verifyScreen() {
         return isElementDisplayed(title);
     }
     public LoginScreen(AndroidDriver driver) {

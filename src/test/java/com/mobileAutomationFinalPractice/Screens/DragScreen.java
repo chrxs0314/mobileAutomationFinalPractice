@@ -10,7 +10,7 @@ public class DragScreen extends BaseScreen {
     WebElement title;
 
     @Override
-    protected Boolean verifyPage() {
+    protected Boolean verifyScreen() {
         return isElementDisplayed(title);
     }
     public DragScreen(AndroidDriver driver) {

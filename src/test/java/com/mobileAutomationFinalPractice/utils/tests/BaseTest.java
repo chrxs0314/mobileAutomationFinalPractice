@@ -1,5 +1,6 @@
 package com.mobileAutomationFinalPractice.utils.tests;
 
+import com.mobileAutomationFinalPractice.utils.screens.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.*;
@@ -29,6 +30,17 @@ public class BaseTest {
         }catch(MalformedURLException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    @AfterMethod
+    public void tearDown(){
+        if(driver != null){
+            driver.quit();
+        }
+    }
+
+    public BaseScreen getBaseScreen(){
+        return new BaseScreen(driver);
     }
 
     public void loadProperties(){

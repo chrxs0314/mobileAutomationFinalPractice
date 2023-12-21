@@ -9,7 +9,7 @@ public class FormsScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Form components\")")
     WebElement title;
     @Override
-    protected Boolean verifyPage() {
+    protected Boolean verifyScreen() {
         return isElementDisplayed(title);
     }
     public FormsScreen(AndroidDriver driver) {

@@ -9,7 +9,7 @@ public class WebviewScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Next-gen browser and mobile automation test framework for Node.js\")")
     WebElement title;
     @Override
-    protected Boolean verifyPage() {
+    protected Boolean verifyScreen() {
         return isElementDisplayed(title);
     }
     public WebviewScreen(AndroidDriver driver) {

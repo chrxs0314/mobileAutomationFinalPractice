@@ -13,7 +13,7 @@ public class SwipeScreen extends BaseScreen {
 
 
     @Override
-    protected Boolean verifyPage() {
+    protected Boolean verifyScreen() {
         return isElementDisplayed(title);
     }
     public SwipeScreen(AndroidDriver driver) {
