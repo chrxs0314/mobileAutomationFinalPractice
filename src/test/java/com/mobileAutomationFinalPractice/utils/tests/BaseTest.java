@@ -1,6 +1,7 @@
 package com.mobileAutomationFinalPractice.utils.tests;
 
 import com.mobileAutomationFinalPractice.utils.screens.BaseScreen;
+import com.mobileAutomationFinalPractice.utils.screens.NavigationBar;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.*;
@@ -39,8 +40,8 @@ public class BaseTest {
         }
     }
 
-    public BaseScreen getBaseScreen(){
-        return new BaseScreen(driver);
+    public NavigationBar getNavigationBar(){
+        return new NavigationBar(driver);
     }
 
     public void loadProperties(){

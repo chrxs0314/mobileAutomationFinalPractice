@@ -19,58 +19,12 @@ import java.util.List;
 
 public class BaseScreen {
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Home\")")
-    WebElement btnHome;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Webview\")")
-    WebElement btnWebview;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Login\")")
-    WebElement btnLogin;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Forms\")")
-    WebElement btnForms;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Swipe\")")
-    WebElement btnSwipe;
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Drag\")")
-    WebElement btnDrag;
     AndroidDriver driver;
-
-    HomeScreen homeScreen;
-    WebviewScreen webviewScreen;
-    LoginScreen loginScreen;
-    FormsScreen formsScreen;
-    SwipeScreen swipeScreen;
-    DragScreen dragScreen;
     protected SoftAssert softAssert = new SoftAssert();
-
-    List<MenuItem> menuItems;
 
     public BaseScreen(AndroidDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
-    public void initializeScreens() {
-        this.homeScreen = new HomeScreen(driver);
-        this.webviewScreen = new WebviewScreen(driver);
-        this.loginScreen = new LoginScreen(driver);
-        this.formsScreen = new FormsScreen(driver);
-        this.swipeScreen = new SwipeScreen(driver);
-        this.dragScreen = new DragScreen(driver);
-        this.menuItems =  Arrays.asList(
-                new MenuItem(btnHome,homeScreen),
-                new MenuItem(btnWebview,webviewScreen),
-                new MenuItem(btnLogin,loginScreen),
-                new MenuItem(btnForms,formsScreen),
-                new MenuItem(btnSwipe,swipeScreen),
-                new MenuItem(btnDrag,dragScreen)
-        );
-    }
-
-    public void exploreItemMenu(){
-        for (MenuItem menuItem : menuItems){
-            menuItem.btn.click();
-            softAssert.assertTrue(menuItem.page.verifyScreen());
-        }
-        softAssert.assertAll();
     }
 
     protected Boolean isElementDisplayed(WebElement element){
