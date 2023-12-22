@@ -55,6 +55,7 @@ public class FormsScreen extends BaseScreen {
 
     List<WebElement> elements = Arrays.asList(
             formsScreen,
+            formsTitle,
             formsMainContent,
             formInputTextLabel,
             formInputText,
@@ -73,8 +74,7 @@ public class FormsScreen extends BaseScreen {
             formDropdownItem3,
             formButtonsLabel,
             formButtonActive,
-            formButtonInactive,
-            formsTitle
+            formButtonInactive
     );
     @Override
     protected Boolean verifyScreen() {

@@ -37,17 +37,17 @@ public class BaseScreen {
         }
     }
 
-    public void swipe(int x, int y){
+    public void swipe(int x, int y, int endx){
         Dimension size = driver.manage().window().getSize();
         int startX = x;
-        int endX = x-400;
+        int endX = endx;
         int centerY = y;
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipe = new Sequence(finger, 1);
         swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0),PointerInput.Origin.viewport(),startX,centerY));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(700),PointerInput.Origin.viewport(),endX,centerY));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(200),PointerInput.Origin.viewport(),endX,centerY));
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         driver.perform(List.of(swipe));
