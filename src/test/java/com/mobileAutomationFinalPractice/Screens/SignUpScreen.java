@@ -67,8 +67,8 @@ public class SignUpScreen extends BaseScreen {
         softAssert.assertTrue(isElementDisplayed(formConfirmPassword));
 
         formEmail.sendKeys(email);
-        formPassword.sendKeys("testPass");
-        formConfirmPassword.sendKeys("testPass");
+        formPassword.sendKeys(password);
+        formConfirmPassword.sendKeys(password);
         formSubmitSignup.click();
 
         softAssert.assertTrue(isElementDisplayed(signedUpConfirm));

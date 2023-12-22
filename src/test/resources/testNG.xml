@@ -1,19 +1,24 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite de Pruebas">
-    <test name="SwipeCard test">
-        <classes>
-            <class name="com.mobileAutomationFinalPractice.Tests.NavigationTest"/>
-        </classes>
-    </test>
-    <test name="Pruebas de Funcionalidad">
+<!--    <test name="Navigation Test">-->
+<!--        <classes>-->
+<!--            <class name="com.mobileAutomationFinalPractice.Tests.NavigationTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="SignUp Test">-->
+<!--        <classes>-->
+<!--            <class name="com.mobileAutomationFinalPractice.Tests.SignUpTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Login Test">
         <classes>
 
-            <class name="com.mobileAutomationFinalPractice.Tests.SignUpTest"/>
+            <class name="com.mobileAutomationFinalPractice.Tests.LoginTest"/>
         </classes>
     </test>
-    <test name="SwipeCard test">
-        <classes>
-            <class name="com.mobileAutomationFinalPractice.Tests.SwipeCardsTest"/>
-        </classes>
-    </test>
+<!--    <test name="SwipeCard test">-->
+<!--        <classes>-->
+<!--            <class name="com.mobileAutomationFinalPractice.Tests.SwipeCardsTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
