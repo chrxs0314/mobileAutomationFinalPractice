@@ -1,6 +1,5 @@
 package com.mobileAutomationFinalPractice.Screens;
 
-import com.mobileAutomationFinalPractice.utils.providers.Emailprovider;
 import com.mobileAutomationFinalPractice.utils.screens.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -29,6 +28,10 @@ public class LoginScreen extends BaseScreen {
     WebElement formText;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"button-LOGIN\")")
     WebElement formSubmitLogin;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"You are logged in!\")")
+    WebElement loginConfirm;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"OK\")")
+    WebElement okBtn;
 
     List<WebElement> elements = Arrays.asList(
             loginScreenView,
@@ -41,6 +44,22 @@ public class LoginScreen extends BaseScreen {
             formText,
             formSubmitLogin
     );
+
+    public void userLogIn(String email, String password){
+        softAssert.assertTrue(isElementDisplayed(loginBtn));
+        loginBtn.click();
+
+        softAssert.assertTrue(isElementDisplayed(formEmail));
+        softAssert.assertTrue(isElementDisplayed(formPassword));
+
+        formEmail.sendKeys(email);
+        formPassword.sendKeys(password);
+        formSubmitLogin.click();
+
+        softAssert.assertTrue(isElementDisplayed(loginConfirm));
+        okBtn.click();
+        softAssert.assertAll();
+    }
 
     @Override
     protected Boolean verifyScreen() {
