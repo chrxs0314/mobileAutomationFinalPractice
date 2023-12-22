@@ -1,5 +1,6 @@
 package com.mobileAutomationFinalPractice.utils.tests;
 
+import com.mobileAutomationFinalPractice.Screens.SignUpScreen;
 import com.mobileAutomationFinalPractice.utils.screens.BaseScreen;
 import com.mobileAutomationFinalPractice.utils.screens.NavigationBar;
 import io.appium.java_client.android.AndroidDriver;
@@ -43,6 +44,7 @@ public class BaseTest {
     public NavigationBar getNavigationBar(){
         return new NavigationBar(driver);
     }
+    public SignUpScreen getSignupScreen(){return new SignUpScreen(driver);}
 
     public void loadProperties(){
         try{

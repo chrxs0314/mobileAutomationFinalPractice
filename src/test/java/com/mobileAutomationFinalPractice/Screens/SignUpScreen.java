@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SignUpScreen extends BaseScreen {
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Login\")")
+    WebElement btnLogin;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Login-screen\")")
     WebElement SignUpScreenView;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Login / Sign up Form\")")
@@ -26,7 +28,11 @@ public class SignUpScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"input-repeat-password\")")
     WebElement formConfirmPassword;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"button-SIGN UP\")")
-    WebElement formSubmitLogin;
+    WebElement formSubmitSignup;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"You successfully signed up!\")")
+    WebElement signedUpConfirm;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"OK\")")
+    WebElement okBtn;
 
     List<WebElement> elements = Arrays.asList(
             SignUpScreenView,
@@ -37,7 +43,7 @@ public class SignUpScreen extends BaseScreen {
             formEmail,
             formPassword,
             formConfirmPassword,
-            formSubmitLogin
+            formSubmitSignup
     );
 
     public void clickLoginForm(){
@@ -45,9 +51,29 @@ public class SignUpScreen extends BaseScreen {
         loginBtn.click();
     }
 
+    public void goToLoginSignUpScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnLogin));
+        btnLogin.click();
+    }
+
     public void clickSignUpForm(){
         softAssert.assertTrue(isElementDisplayed(signUpBtn));
         signUpBtn.click();
+    }
+
+    public void userSignUp(String email, String password){
+        softAssert.assertTrue(isElementDisplayed(formEmail));
+        softAssert.assertTrue(isElementDisplayed(formPassword));
+        softAssert.assertTrue(isElementDisplayed(formConfirmPassword));
+
+        formEmail.sendKeys(email);
+        formPassword.sendKeys("testPass");
+        formConfirmPassword.sendKeys("testPass");
+        formSubmitSignup.click();
+
+        softAssert.assertTrue(isElementDisplayed(signedUpConfirm));
+        System.out.println("El usuario " + email + " con contraseña testPass se registro con exito");
+        okBtn.click();
     }
 
     @Override

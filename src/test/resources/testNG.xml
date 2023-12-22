@@ -3,7 +3,8 @@
     <test name="Pruebas de Funcionalidad">
         <classes>
             <class name="com.mobileAutomationFinalPractice.utils.tests.BaseTest"/>
-            <class name="com.mobileAutomationFinalPractice.Tests.NavigationTest"></class>
+<!--            <class name="com.mobileAutomationFinalPractice.Tests.NavigationTest"></class>-->
+            <class name="com.mobileAutomationFinalPractice.Tests.SignUpTest"></class>
         </classes>
     </test>
 </suite>

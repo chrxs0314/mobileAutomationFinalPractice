@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationBar extends BaseScreen{
+public class NavigationBar extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Home\")")
     WebElement btnHome;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Webview\")")
@@ -30,21 +30,51 @@ public class NavigationBar extends BaseScreen{
     SwipeScreen swipeScreen = new SwipeScreen(driver);
     DragScreen dragScreen = new DragScreen(driver);
 
-    List<MenuItem> menuItems =  Arrays.asList(
-            new MenuItem(btnHome,homeScreen),
-            new MenuItem(btnWebview,webviewScreen),
-            new MenuItem(btnLogin,loginScreen),
-            new MenuItem(btnLogin,signUpScreen),
-            new MenuItem(btnForms,formsScreen),
-            new MenuItem(btnSwipe,swipeScreen),
-            new MenuItem(btnDrag,dragScreen)
+    List<MenuItem> menuItems = Arrays.asList(
+            new MenuItem(btnHome, homeScreen),
+            new MenuItem(btnWebview, webviewScreen),
+            new MenuItem(btnLogin, loginScreen),
+            new MenuItem(btnLogin, signUpScreen),
+            new MenuItem(btnForms, formsScreen),
+            new MenuItem(btnSwipe, swipeScreen),
+            new MenuItem(btnDrag, dragScreen)
     );
 
-    public void exploreItemMenu(){
-        for (MenuItem menuItem : menuItems){
+    public void exploreItemMenu() {
+        for (MenuItem menuItem : menuItems) {
             menuItem.btn.click();
             softAssert.assertTrue(menuItem.page.verifyScreen());
         }
+        softAssert.assertAll();
+    }
+
+    public void goWebviewScreen() {
+        softAssert.assertTrue(isElementDisplayed(btnWebview));
+        btnWebview.click();
+        softAssert.assertAll();
+    }
+
+    public void goLoginScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnLogin));
+        btnLogin.click();
+        softAssert.assertAll();
+    }
+
+    public void goFormsScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnForms));
+        btnForms.click();
+        softAssert.assertAll();
+    }
+
+    public void goDragScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnDrag));
+        btnDrag.click();
+        softAssert.assertAll();
+    }
+
+    public void goSwipeScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnSwipe));
+        btnSwipe.click();
         softAssert.assertAll();
     }
 
