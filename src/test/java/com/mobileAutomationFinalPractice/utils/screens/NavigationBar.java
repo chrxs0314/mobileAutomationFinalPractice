@@ -48,36 +48,6 @@ public class NavigationBar extends BaseScreen {
         softAssert.assertAll();
     }
 
-    public void goWebviewScreen() {
-        softAssert.assertTrue(isElementDisplayed(btnWebview));
-        btnWebview.click();
-        softAssert.assertAll();
-    }
-
-    public void goLoginScreen(){
-        softAssert.assertTrue(isElementDisplayed(btnLogin));
-        btnLogin.click();
-        softAssert.assertAll();
-    }
-
-    public void goFormsScreen(){
-        softAssert.assertTrue(isElementDisplayed(btnForms));
-        btnForms.click();
-        softAssert.assertAll();
-    }
-
-    public void goDragScreen(){
-        softAssert.assertTrue(isElementDisplayed(btnDrag));
-        btnDrag.click();
-        softAssert.assertAll();
-    }
-
-    public void goSwipeScreen(){
-        softAssert.assertTrue(isElementDisplayed(btnSwipe));
-        btnSwipe.click();
-        softAssert.assertAll();
-    }
-
     public NavigationBar(AndroidDriver driver) {
         super(driver);
     }

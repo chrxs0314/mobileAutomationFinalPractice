@@ -1,5 +1,6 @@
 package com.mobileAutomationFinalPractice.utils.screens;
 
+import com.google.common.collect.ImmutableList;
 import com.mobileAutomationFinalPractice.Screens.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -37,20 +38,22 @@ public class BaseScreen {
         }
     }
 
-    public void swipe(int x, int y, int endx){
+    public void swipe(double startXPercentage, double endXPercentage, double cenerYPercentage){
         Dimension size = driver.manage().window().getSize();
-        int startX = x;
-        int endX = endx;
-        int centerY = y;
+        int startX = (int)(size.width * startXPercentage);
+        int endX = (int)(size.width * endXPercentage);
+        int centerY = (int) (size.height * cenerYPercentage);
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
-        swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0),PointerInput.Origin.viewport(),startX,centerY));
+        Sequence swipe = new Sequence(finger, 0);
+
+        swipe.addAction(finger.createPointerMove(Duration.ZERO,PointerInput.Origin.viewport(),startX,centerY));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(200),PointerInput.Origin.viewport(),endX,centerY));
+
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(600),PointerInput.Origin.viewport(),endX,centerY));
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-        driver.perform(List.of(swipe));
+        driver.perform(ImmutableList.of(swipe));
     }
 
     protected Boolean verifyScreen() {

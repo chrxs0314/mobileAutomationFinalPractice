@@ -43,6 +43,8 @@ public class SwipeScreen extends BaseScreen {
     WebElement swipeScreenIndicatorItem5;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Carousel\").childSelector(new UiSelector().className(\"android.view.ViewGroup\").instance(9).childSelector(new UiSelector().index(5)))")
     WebElement swipeScreenIndicatorItem6;
+    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Swipe\")")
+    WebElement btnSwipe;
 
     List<WebElement> elements = Arrays.asList(
             swipeScreenView,
@@ -71,6 +73,38 @@ public class SwipeScreen extends BaseScreen {
             swipeScreenScrollViewCard4,
             swipeScreenScrollViewCard5
     );
+    List<WebElement> elementsToSwipeRight = Arrays.asList(
+            swipeScreenScrollViewCard1,
+            swipeScreenScrollViewCard2,
+            swipeScreenScrollViewCard3,
+            swipeScreenScrollViewCard4,
+            swipeScreenScrollViewCard5,
+            swipeScreenScrollViewCard6
+    );
+    List<WebElement> elementsToSwipeLeft = Arrays.asList(
+            swipeScreenScrollViewCard1,
+            swipeScreenScrollViewCard2,
+            swipeScreenScrollViewCard3,
+            swipeScreenScrollViewCard4,
+            swipeScreenScrollViewCard5,
+            swipeScreenScrollViewCard6
+    );
+
+    public void goToSwipeScreen(){
+        softAssert.assertTrue(isElementDisplayed(btnSwipe));
+        btnSwipe.click();
+    }
+
+    public void swipeCards(){
+        for (WebElement elementToSwipe : elementsToSwipeRight){
+            isElementDisplayed(elementToSwipe);
+            swipe(0.5,0.2, 0.7);
+        }
+        for (WebElement elementToSwipe : elementsToSwipeLeft){
+            isElementDisplayed(elementToSwipe);
+            swipe(0.5,0.8, 0.7);
+        }
+    }
 
     @Override
     protected Boolean verifyScreen() {
@@ -80,7 +114,7 @@ public class SwipeScreen extends BaseScreen {
             );
             for (WebElement elemtToSwipe : elementsToSwipe){
                 if (el == elemtToSwipe){
-                    swipe(536,1500, 75);
+                    swipe(0.5,0.25, 0.75);
                 }
             }
         }
