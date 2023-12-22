@@ -10,10 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LoginScreen extends BaseScreen {
+    private String nameScreen = "Login";
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"Login-screen\")")
     WebElement loginScreenView;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Login / Sign up Form\")")
-    WebElement loginTitle;
+    WebElement loginSignUpTitle;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"button-login-container\")")
     WebElement loginBtn;
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"button-sign-up-container\")")
@@ -29,11 +30,9 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().description(\"button-LOGIN\")")
     WebElement formSubmitLogin;
 
-
-
     List<WebElement> elements = Arrays.asList(
             loginScreenView,
-            loginScreenView,
+            loginSignUpTitle,
             loginBtn,
             signUpBtn,
             formLoginSignUp,

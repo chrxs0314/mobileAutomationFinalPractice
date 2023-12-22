@@ -25,6 +25,7 @@ public class NavigationBar extends BaseScreen{
     HomeScreen homeScreen = new HomeScreen(driver);
     WebviewScreen webviewScreen = new WebviewScreen(driver);
     LoginScreen loginScreen = new LoginScreen(driver);
+    SignUpScreen signUpScreen = new SignUpScreen(driver);
     FormsScreen formsScreen = new FormsScreen(driver);
     SwipeScreen swipeScreen = new SwipeScreen(driver);
     DragScreen dragScreen = new DragScreen(driver);
@@ -33,6 +34,7 @@ public class NavigationBar extends BaseScreen{
             new MenuItem(btnHome,homeScreen),
             new MenuItem(btnWebview,webviewScreen),
             new MenuItem(btnLogin,loginScreen),
+            new MenuItem(btnLogin,signUpScreen),
             new MenuItem(btnForms,formsScreen),
             new MenuItem(btnSwipe,swipeScreen),
             new MenuItem(btnDrag,dragScreen)
