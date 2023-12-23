@@ -91,10 +91,8 @@ public class FormsScreen extends BaseScreen {
         }
         try {
             softAssert.assertAll();
-            System.out.println("Se comprobo todos los elementos de Forms");
             return true;
         }catch (AssertionError e){
-            System.out.println("No se pudo comprobar los elementos");
             return false;
         }
     }

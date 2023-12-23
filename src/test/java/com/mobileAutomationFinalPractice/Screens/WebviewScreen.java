@@ -43,10 +43,8 @@ public class WebviewScreen extends BaseScreen {
         }
         try {
             softAssert.assertAll();
-            System.out.println("Se comprobo todos los elementos de Webview");
             return true;
         }catch (AssertionError e){
-            System.out.println("No se pudo comprobar los elementos");
             return false;
         }
     }

@@ -10,8 +10,6 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
     private LoginScreen loginScreen;
     private SignUpScreen signUpScreen;
-    private String email;
-    private String password;
     @BeforeMethod
     public void goToLoginScreen(){
         this.signUpScreen = getSignupScreen();
